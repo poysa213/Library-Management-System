@@ -1,20 +1,20 @@
 from rest_framework import serializers
-from .models import Category, Book, BookImages, BorrowedBook, Borrower
+from .models import Category, Book, BorrowedBook, Borrower
 
-class BookImageSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = BookImages
-        fields = ['images']
+# class BookImageSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = BookImages
+#         fields = ['images']
 
 class BookSerializer(serializers.ModelSerializer):
-    images = BookImageSerializer(many=True, read_only=True)
-    uploaded_images = serializers.ListField(
-        child = serializers.FileField(max_length = 1000000, allow_empty_file = False, use_url = False),
-        write_only = True
-    )
+    # images = BookImageSerializer(many=True, read_only=True)
+    # uploaded_images = serializers.ListField(
+    #     child = serializers.FileField(max_length = 1000000, allow_empty_file = False, use_url = False),
+    #     write_only = True
+    # )
     class Meta:
         model = Book
-        fields = ['id','title','quantity','description','category','images','uploaded_images', 'pages', 'publisher']
+        fields = ['id','title','quantity','description','category', 'pages', 'publisher']
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -26,9 +26,9 @@ class BorrowerSerializer(serializers.ModelSerializer):
         model = Borrower
         fields = ['first_name', 'last_name', 'phone_number', 'email', 'date_of_birth']
 
-class BorrwedBookSerializer(serializers.ModelSeralizer):
+class BorrwedBookSerializer(serializers.ModelSerializer):
     book = BookSerializer()
-    Borrower = BorrowerSerializer()
+    borrower = BorrowerSerializer()
     class Meta:
         model = BorrowedBook
         fields = ['book', 'borrower', 'returned']
