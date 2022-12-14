@@ -36,7 +36,7 @@ class Borrower(models.Model):
     phone_number = models.CharField(max_length=200, blank=True)
     email = models.EmailField(max_length = 254, unique=True, blank=True, null=True)
     date_of_birth = models.DateField(blank=True, null=True)
-    number_visits = models.SmallIntegerField(default=1,null=True)
+    number_visits = models.SmallIntegerField(default=1)
 
     def __str__(self):
         return f'{self.first_name}  {self.last_name}'
@@ -47,5 +47,8 @@ class BorrowedBook(models.Model):
     started_at = models.DateTimeField(auto_now_add=True)
     finished_at = models.DateTimeField(auto_now=True)
     returned = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f'{self.book}'
 
   
