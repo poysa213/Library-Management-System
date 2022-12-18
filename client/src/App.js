@@ -17,6 +17,7 @@ function App() {
         >
           Learn React
         </a>
+        <h1 className='text-3xl font-bold underline'>H sefsdf se</h1>
       </header>
     </div>
   );
