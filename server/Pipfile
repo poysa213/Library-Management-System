@@ -4,11 +4,10 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "==4.0"
-djangorestframework = "==3.13"
+django = "==4.1"
+djangorestframework = "==3.14"
 drf-nested-routers = "*"
 django-cors-headers = "*"
-djangorestframework-simplejwt = {extras = ["crypto"], version = "*"}
 
 [dev-packages]
 
