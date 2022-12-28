@@ -24,11 +24,11 @@ class CategorySerializer(serializers.ModelSerializer):
 class BorrowerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Borrower
-        fields = ['first_name', 'last_name', 'phone_number', 'email', 'date_of_birth']
+        fields = ['first_name', 'last_name', 'phone_number', 'email', 'date_of_birth', 'banned']
 
 class BorrwedBookSerializer(serializers.ModelSerializer):
-    book = BookSerializer()
-    borrower = BorrowerSerializer()
+    # book = BookSerializer()
+    # borrower = BorrowerSerializer()
     class Meta:
         model = BorrowedBook
         fields = ['book', 'borrower', 'returned']

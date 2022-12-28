@@ -8,6 +8,7 @@ django = "==4.1"
 djangorestframework = "==3.14"
 drf-nested-routers = "*"
 django-cors-headers = "*"
+django-filter = "*"
 
 [dev-packages]
 
